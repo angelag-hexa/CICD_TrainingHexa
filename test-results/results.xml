@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="9.037060000000002">
+<testsuite name="practice-automation.spec.ts" timestamp="2026-03-25T22:22:53.195Z" hostname="chromium" tests="2" failures="0" skipped="0" time="11.63" errors="0">
+<testcase name="Practice Automation › should display the correct page title on the home page" classname="practice-automation.spec.ts" time="5.306">
+</testcase>
+<testcase name="Practice Automation › should login" classname="practice-automation.spec.ts" time="6.324">
+</testcase>
+</testsuite>
+<testsuite name="test-table.spec.ts" timestamp="2026-03-25T22:22:53.195Z" hostname="chromium" tests="1" failures="0" skipped="0" time="5.571" errors="0">
+<testcase name="Table test › select java Advanced only" classname="test-table.spec.ts" time="5.571">
+</testcase>
+</testsuite>
+</testsuites>
