@@ -37,23 +37,27 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Bump patch version
         id: bump
         run: |
           # npm version patch updates package.json and creates a git commit + tag
           NEW_VERSION=$(npm version patch --no-git-tag-version)
           echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+
       - name: Commit and push version bump
         run: |
           git add package.json package-lock.json
           git commit -m "chore(ci): bump version to ${{ steps.bump.outputs.new_version }} [skip ci]"
           git push origin testing
+
       # ── Delete the source branch that opened the PR ──────────────────────
       - name: Delete merged branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           BRANCH="${{ github.event.pull_request.head.ref }}"
+
           # Guard: never delete main, master, testing, or develop
           PROTECTED="main master testing develop"
           for PROTECTED_BRANCH in $PROTECTED; do
@@ -62,6 +66,7 @@ jobs:
               exit 0
             fi
           done
+
           echo "Deleting branch: $BRANCH"
           gh api \
             --method DELETE \
