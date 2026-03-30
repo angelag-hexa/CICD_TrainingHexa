@@ -1,6 +1,6 @@
 {
   "name": "playwright-automation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Playwright E2E automation project",
   "scripts": {
     "test": "playwright test",
